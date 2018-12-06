@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Giftastic Project</title>
+    <style type="text/css">
+        button,
+        div,
+        form,
+        input {
+            margin: 10px;
+        }
+    </style>
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="panel" id="startingButtons">
+            <div class="panel-heading">
+                <h1 class="panel name">GIFtastic!</h1>
+                <p> Check out some fun Gifs or search for more!</p>
+            </div>
+
+            <!-- BUTTONS  ADDED 12/5-->
+            <div class="card">
+                <div class="card-header">Button History</div>
+                <div class="card-body">
+                    <div class="btn-div"></div>
+                </div>
+            </div>
+            <!-- Rendered Buttons get dumped here -->
+            <!-- <div id="buttons-view" class="panel-body">
+            </div> -->
+
+            <div id="buttons-view"></div>
+
+
+            <p id="text">(click the gif to play, pause, and restart!)</p>
+
+        </div>
+
+        <!-- FORM -->
+        <form id="gif-form">
+            <label for="gif-input">Add a button!</label>
+            <input type="text" id="gif-input">
+            <br>
+            <!-- trigger new movie to be added -->
+            <input id="add-gif" type="submit" value="Add a Gif!">
+        </form>
+
+        <!-- Gifs will get dumped here: -->
+        <div id="gifs-view"></div>
+        <!-- <div id="gifs-view"></div> -->
+
+    </div>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var gifs = ["Shark", "Jellyfish", "Starfish", "Man-of-War", "Whale"];
+
+            function renderButtons() {
+                for (var i = 0; i < gifs.length; i++) {
+                    var a = $("<button>");
+                    a.addClass("gif");
+                    a.attr("data-name", gifs[i]);
+                    a.text(gifs[i]);
+                    $("#gifs-view").append(a);
+
+                }
+
+            }
+            // // var APIkey = "UHdcRGKWsjkUq3PY65AGfvYA9ivLcwla";
+            // $("#find-gif").on("click", function (event) {
+            //     event.preventDefault();
+            //     var gif = $("#gif-input").val();
+
+
+
+            //     $("#gifs-view").empty();
+
+            //     for (var i = 0; i < movies.length; i++) {
+            //         var a = $("<buttons>");
+            //         a.addClass("gif");
+            //         a.attr("data-name", gifs[i]);
+            //         a.text(gifs[i]);
+            //         $("#gifs-view").append(a);
+
+            //     }
+
+            //     function displayGifInfo() {
+
+            //         // function for capturing the movie name from the data attribute
+            //         function alertGifName() {
+            //             var gif = $(this).attr("data-name");
+            //             var queryURL = 'https://api.giphy.com/v1/gifs/search?UHdcRGKWsjkUq3PY65AGfvYA9ivLcwlaƒ=&q=shark&limit=10&offset=0&rating=G&lang=en';
+            //             $.ajax({
+            //                 url: queryURL,
+            //                 method: "GET"
+            //             }).then(function (response) {
+            //                 $("#gif-view").text(JSON.stringify(response));
+
+            //                 console.log("response");
+
+
+            //                 // Div to hold the movie 
+            //                 var gifDiv = $("<div class= 'gif'>");
+
+            //                 // Store the rating data  CHANGE!!!!!!!!!!
+            //                 var rating = response.Rated;
+
+            //                 // create element to have the rating displayed  CHANGE !!!!!!!!
+            //                 var pOne = $("<p>").text("Rating: " + rating);
+
+
+            //                 // Displaying the rating  
+            //                 gifDiv.append(pOne);
+
+
+            //                 // Creating an element to hold the image
+            //                 var image = $("<img>").attr("src", imgURL);
+
+            //                 // Appending the image
+            //                 gifDiv.append(image);
+
+            //                 // Putting the entire movie above the previous gifs
+            //                 $("#gifs-view").prepend(gifDiv);
+            //             });
+
+            //         }
+
+
+
+            //         gifs.push(gif);
+
+            //         //    renderButtons();
+            //     };
+
+
+            //     // $(document).on("click", ".gif-btn", displayGifInfo);
+
+            //         // renderButtons();
+            renderButtons();
+        });
+    </script>
+
+</body>
+
+</html>
